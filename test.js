@@ -30,6 +30,8 @@ function loadFrames(video) {
     video.appendChild(frames);
     video.appendChild(tempVideo);
 
+    tempVideo.src = video.src;
+
     // EVENT LISTENERS
 
     video.addEventListener("timeupdate", function focusFrame() {
@@ -47,8 +49,8 @@ function loadFrames(video) {
     tempVideo.addEventListener("loadeddata", function() {
 
         this.currentTime = 0;
-        canvas.width = this.videoWidth;
-        canvas.height = this.videoHeight;
+        frameBuilder.width = this.videoWidth;
+        frameBuilder.height = this.videoHeight;
 
     });
 
@@ -58,7 +60,7 @@ function loadFrames(video) {
             return;
 
         context.drawImage(tempVideo, 0, 0);
-        canvas.toBlob(blob => {
+        frameBuilder.toBlob(blob => {
 
             if(!isLoadingFrames)
                 return;
