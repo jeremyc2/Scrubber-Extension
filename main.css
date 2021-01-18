@@ -5,6 +5,11 @@
 
     width: 100vw;
     height: 100vh;
+
+    top: 0px;
+    left: 0px;
+
+    background-color: rgba(0, 0, 0, 0.7);
 }
 
 .frame-builder{
@@ -18,10 +23,8 @@
     position: absolute;
     top: 0px;
     overflow-y: scroll;
-    height: -webkit-fill-available;
     background-color: black;
-    
-    width: 100%;
+
 }
 .frames::-webkit-scrollbar {
     display: none;
