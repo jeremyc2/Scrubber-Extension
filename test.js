@@ -4,6 +4,8 @@ var isLoadingFrames = false;
 
 function loadFrames(video) {
 
+    console.log("Cross Origin: ", video.crossOrigin);
+
     var thumbnails = [];
 
     isLoadingFrames = true;
