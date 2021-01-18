@@ -57,7 +57,7 @@ progress.percent-loaded::-webkit-progress-value {
          -webkit-linear-gradient(top, 
                                  rgba(255, 255, 255, .25), 
                                  rgba(0, 0, 0, .25));
-    background-color: var(--blue);
+    background-color: hsl(210, 70%, 44%);
     border-radius: 10px;
     background-size: 95px 53px, 100% 100%;
 
