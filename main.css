@@ -1,5 +1,7 @@
 .scrubber-container {
-
+    display: flex;
+    justify-content: center;
+    position: absolute;
 }
 
 .frame-builder{
