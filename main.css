@@ -43,6 +43,8 @@
 progress.percent-loaded {
     width: 50vw;
     height: 50px;
+    -webkit-appearance: none;
+    appearance: none;
 }
 progress.percent-loaded::-webkit-progress-bar {
     background-color: hsl(0, 0%, 93%);
