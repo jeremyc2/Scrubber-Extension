@@ -1,9 +1,10 @@
 .scrubber-container {
     display: flex;
-    justify-items: center;
+    justify-content: center;
     align-items: center;
 
     position: absolute;
+    overflow: hidden;
     top: 0px;
     left: 0px;
 
@@ -23,6 +24,8 @@
     flex-wrap: wrap;
     overflow-y: scroll;
     background-color: black;
+    min-width: fit-content;
+    padding: 10px;
 }
 .frames::-webkit-scrollbar {
     display: none;
@@ -37,12 +40,14 @@
     border: solid gold 6px !important;
 }
 
+progress.percent-loaded {
+    width: 50vw;
+    height: 50px;
+}
 progress.percent-loaded::-webkit-progress-bar {
     background-color: hsl(0, 0%, 93%);
     border-radius: 10px;
     overflow: hidden;
-    width: 50vw;
-    height: 50px;
 }
 progress.percent-loaded::-webkit-progress-value {
     background-image:
