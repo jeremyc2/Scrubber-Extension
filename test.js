@@ -18,6 +18,7 @@ function loadFrames(video) {
         tempVideo = document.createElement("video"),
         context = frameBuilder.getContext('2d');
 
+    container.classList.add("scrubber-container");
     frameBuilder.classList.add("frame-builder");
     frames.classList.add("frames");
     percentLoaded.classList.add("percent-loaded");
