@@ -15,6 +15,11 @@ function hideFrames(video) {
 
 function loadFrames(video) {
 
+    if(video.hasAttribute("container-id")) {
+        showFrames(video);
+        return;
+    }
+
     video.setAttribute("container-ID", nextID++);
 
     console.log("Cross Origin: ", video.crossOrigin);
