@@ -34,6 +34,7 @@ function loadFrames(video) {
         context = frameBuilder.getContext('2d');
 
     container.classList.add("scrubber-container");
+    container.id = 'frames-container' + video.getAttribute("container-ID");
     frameBuilder.classList.add("frame-builder");
     frames.classList.add("frames");
     percentLoaded.classList.add("percent-loaded");
