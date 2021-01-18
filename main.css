@@ -84,5 +84,8 @@ progress.percent-loaded::-webkit-progress-value {
     position: absolute;
     top: 0px;
     left: 0px;
+}
 
+.hide {
+    display: none !important;
 }

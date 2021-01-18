@@ -86,6 +86,7 @@ function loadFrames(video) {
             else {
                 // Done!, next action
                 isLoadingFrames = false;
+                percentLoaded.classList.add("hide");
 
                 // Generate Thumbnails
                 var index = 0;
@@ -98,6 +99,7 @@ function loadFrames(video) {
 
                     thumbnail.addEventListener("click", function() {
                         video.currentTime = parseInt(this.getAttribute("data-index")) * 5;
+                        container.classList.add("hide");
                     });
 
                     frames.appendChild(thumbnail);
