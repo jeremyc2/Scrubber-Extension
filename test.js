@@ -1,8 +1,21 @@
 // Context Menus - https://stackoverflow.com/a/13783536
 
-var isLoadingFrames = false;
+var isLoadingFrames = false,
+    nextID = 0;
+
+function showFrames(video) {
+    var container = document.getElementById('frames-container' + video.getAttribute("container-ID"));
+    container.classList.remove("hide");
+}
+
+function hideFrames(video) {
+    var container = document.getElementById('frames-container' + video.getAttribute("container-ID"));
+    container.classList.add("hide");
+}
 
 function loadFrames(video) {
+
+    video.setAttribute("container-ID", nextID++);
 
     console.log("Cross Origin: ", video.crossOrigin);
 
