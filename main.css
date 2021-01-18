@@ -2,6 +2,9 @@
     display: flex;
     justify-content: center;
     position: absolute;
+
+    width: 100vw;
+    height: 100vh;
 }
 
 .frame-builder{
@@ -17,6 +20,7 @@
     overflow-y: scroll;
     height: -webkit-fill-available;
     background-color: black;
+    
     width: 100%;
 }
 .frames::-webkit-scrollbar {

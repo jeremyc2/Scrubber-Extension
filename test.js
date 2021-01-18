@@ -25,6 +25,8 @@ function loadFrames(video) {
     framesProgress.classList.add("frames-progress");
     tempVideo.classList.add("temp-video");
 
+    container.style.zIndex = Number.MAX_SAFE_INTEGER;
+
     frames.appendChild(percentLoaded);
     frames.appendChild(framesProgress);
 
@@ -32,8 +34,7 @@ function loadFrames(video) {
     container.appendChild(frames);
     container.appendChild(tempVideo);
 
-    video.parentNode.replaceChild(container, video);
-    container.appendChild(video);
+    document.body.appendChild(container);
 
     tempVideo.src = video.src;
 
