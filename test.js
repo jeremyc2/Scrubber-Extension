@@ -77,7 +77,7 @@ function loadFrames(video) {
             if (this.currentTime + 5 <= this.duration) {
                 // this will trigger another seeked event
                 this.currentTime += 5;
-                var percent = (this.currentTime / this.duration) * 100;
+                var percent = this.currentTime / this.duration;
                 percentLoaded.value = percent;
             }
             else {
