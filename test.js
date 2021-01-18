@@ -10,7 +10,8 @@ function loadFrames(video) {
 
     // INIT NEW ELEMENTS
 
-    var frameBuilder = document.createElement("canvas"),
+    var container = document.createElement("div"),
+        frameBuilder = document.createElement("canvas"),
         frames = document.createElement("div"),
         percentLoaded = document.createElement("progress"),
         framesProgress = document.createElement("div"),
@@ -26,9 +27,12 @@ function loadFrames(video) {
     frames.appendChild(percentLoaded);
     frames.appendChild(framesProgress);
 
-    video.appendChild(frameBuilder);
-    video.appendChild(frames);
-    video.appendChild(tempVideo);
+    container.appendChild(frameBuilder);
+    container.appendChild(frames);
+    container.appendChild(tempVideo);
+
+    video.parentNode.replaceChild(container, video);
+    container.appendChild(video);
 
     tempVideo.src = video.src;
 
