@@ -1,13 +1,14 @@
 .scrubber-container {
     display: flex;
     justify-content: center;
+    align-content: center;
+
     position: absolute;
+    top: 0px;
+    left: 0px;
 
     width: 100vw;
     height: 100vh;
-
-    top: 0px;
-    left: 0px;
 
     background-color: rgba(0, 0, 0, 0.7);
 }
@@ -20,11 +21,8 @@
 .frames {
     display: flex;
     flex-wrap: wrap;
-    position: absolute;
-    top: 0px;
     overflow-y: scroll;
     background-color: black;
-
 }
 .frames::-webkit-scrollbar {
     display: none;
@@ -39,12 +37,14 @@
     border: solid gold 6px !important;
 }
 
-.percent-loaded::-webkit-progress-bar {
+progress.percent-loaded::-webkit-progress-bar {
     background-color: hsl(0, 0%, 93%);
     border-radius: 10px;
     overflow: hidden;
+    width: 50vw;
+    height: 50px;
 }
-.percent-loaded::-webkit-progress-value {
+progress.percent-loaded::-webkit-progress-value {
     background-image:
          -webkit-linear-gradient(-45deg, 
                                  transparent 33%, rgba(0, 0, 0, .1) 33%, 
