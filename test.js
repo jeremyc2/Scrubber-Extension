@@ -1,3 +1,5 @@
+// Context Menus - https://stackoverflow.com/a/13783536
+
 var isLoadingFrames = false;
 
 function loadFrames(video) {
