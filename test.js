@@ -12,10 +12,17 @@ function hideFrames(video) {
 }
 
 function getFramesContainer(video) {
+
+    if(video == null)
+        video = document.querySelector("video");
+
     return document.getElementById('frames-container' + video.getAttribute("container-ID"));
 }
 
 function loadFrames(video) {
+
+    if(video == null)
+        video = document.querySelector("video");
 
     var id;
 
