@@ -108,7 +108,7 @@ function loadFrames(video) {
             if(!framesReference.isLoading)
                 return;
                 
-            thumbnails.push(URL.createObjectURL(blob));
+            framesReference.thumbnails.push(URL.createObjectURL(blob));
 
             // if we are not passed end, seek to next interval
             if (this.currentTime + 5 <= this.duration) {
@@ -124,7 +124,7 @@ function loadFrames(video) {
 
                 // Generate Thumbnails
                 var index = 0;
-                thumbnails.forEach(thumbnailSrc => {
+                framesReference.thumbnails.forEach(thumbnailSrc => {
                     var thumbnail = document.createElement("img");
                     thumbnail.setAttribute("data-index", index);
                     thumbnail.setAttribute("tabindex", -1);
