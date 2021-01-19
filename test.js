@@ -17,14 +17,14 @@ function getFramesContainer(video) {
 
 function loadFrames(video) {
 
-    var framesReference;
+    var id;
 
     if(video.hasAttribute("container-id")) {
 
         // RESET CONTAINER
 
-        var id = video.getAttribute("container-id");
-        framesReference = videoFrames[id] = {isLoading: true, thumbnails: []};
+        id = video.getAttribute("container-id");
+        videoFrames[id] = {isLoading: true, thumbnails: []};
 
         var container = getFramesContainer(video),
             tempVideo = container.querySelector('.temp-video'),
@@ -40,9 +40,9 @@ function loadFrames(video) {
         return;
     }
 
-    video.setAttribute("container-ID", nextID);
-    framesReference = videoFrames[nextID] = {isLoading: true, thumbnails: []};
-    nextID++;
+    id = nextID++;
+    video.setAttribute("container-ID", id);
+    videoFrames[id] = {isLoading: true, thumbnails: []};
 
     // INIT NEW ELEMENTS
 
@@ -82,7 +82,7 @@ function loadFrames(video) {
 
     video.addEventListener("timeupdate", function focusFrame() {
 
-        if(framesReference.isLoading)
+        if(videoFrames[id].isLoading)
             return;
         
         var frameNumber = Math.floor(this.currentTime / 5);
@@ -102,16 +102,16 @@ function loadFrames(video) {
 
     tempVideo.addEventListener("seeked", function generateThumbnail() {
 
-        if(!framesReference.isLoading)
+        if(!videoFrames[id].isLoading)
             return;
 
         context.drawImage(tempVideo, 0, 0);
         frameBuilder.toBlob(blob => {
 
-            if(!framesReference.isLoading)
+            if(!videoFrames[id].isLoading)
                 return;
                 
-            framesReference.thumbnails.push(URL.createObjectURL(blob));
+            videoFrames[id].thumbnails.push(URL.createObjectURL(blob));
 
             // if we are not passed end, seek to next interval
             if (this.currentTime + 5 <= this.duration) {
@@ -122,12 +122,12 @@ function loadFrames(video) {
             }
             else {
                 // Done!, next action
-                framesReference.isLoading = false;
+                videoFrames[id].isLoading = false;
                 percentLoaded.classList.add("hide");
 
                 // Generate Thumbnails
                 var index = 0;
-                framesReference.thumbnails.forEach(thumbnailSrc => {
+                videoFrames[id].thumbnails.forEach(thumbnailSrc => {
                     var thumbnail = document.createElement("img");
                     thumbnail.setAttribute("data-index", index);
                     thumbnail.setAttribute("tabindex", -1);
