@@ -27,8 +27,8 @@ function loadFrames(video) {
         framesReference = videoFrames[id] = {isLoading: true, thumbnails: []};
 
         var container = getFramesContainer(video),
-            tempVideo = container.querySelector('.temp-video');
-            percentLoaded = container.querySelector('.percent-loaded');
+            tempVideo = container.querySelector('.temp-video'),
+            percentLoaded = container.querySelector('.percent-loaded'),
             thumbnails = [...container.querySelectorAll('.frames img')];
 
         thumbnails.forEach(thumbnail => thumbnail.parentNode.removeChild(thumbnail));
