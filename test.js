@@ -20,11 +20,13 @@ function loadFrames(video) {
 
     if(video.hasAttribute("container-id")) {
         var tempVideo = video.querySelector('.temp-video');
+        var container = video.querySelector('.scrubber-container');
         var percentLoaded = video.querySelector('.percent-loaded');
 
         thumbnails = [];
         tempVideo.src = video.src;
         percentLoaded.value = 0;
+        container.classList.remove("hide");
         // showFrames(video);
         return;
     }
