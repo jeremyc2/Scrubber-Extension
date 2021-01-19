@@ -27,7 +27,7 @@ function loadFrames(video) {
         var tempVideo = video.querySelector('.temp-video');
         var container = video.querySelector('.scrubber-container');
         var percentLoaded = video.querySelector('.percent-loaded');
-        var thumbnails = [...video.querySelector('.frames img')];
+        var thumbnails = [...video.querySelectorAll('.frames img')];
 
         thumbnails.forEach(thumbnail => thumbnail.parentNode.removeChild(thumbnail));
 
