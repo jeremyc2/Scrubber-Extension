@@ -4,13 +4,15 @@ var videoFrames = {},
     nextID = 0;
 
 function showFrames(video) {
-    var container = document.getElementById('frames-container' + video.getAttribute("container-ID"));
-    container.classList.remove("hide");
+    getFramesContainer(video).classList.remove("hide");
 }
 
 function hideFrames(video) {
-    var container = document.getElementById('frames-container' + video.getAttribute("container-ID"));
-    container.classList.add("hide");
+    getFramesContainer(video).classList.add("hide");
+}
+
+function getFramesContainer(video) {
+    return document.getElementById('frames-container' + video.getAttribute("container-ID"));
 }
 
 function loadFrames(video) {
@@ -24,10 +26,10 @@ function loadFrames(video) {
         var id = video.getAttribute("container-id");
         framesReference = videoFrames[id] = {isLoading: true, thumbnails: []};
 
-        var tempVideo = video.querySelector('.temp-video');
-        var container = video.querySelector('.scrubber-container');
-        var percentLoaded = video.querySelector('.percent-loaded');
-        var thumbnails = [...video.querySelectorAll('.frames img')];
+        var container = getFramesContainer(video),
+            tempVideo = container.querySelector('.temp-video');
+            percentLoaded = container.querySelector('.percent-loaded');
+            thumbnails = [...container.querySelectorAll('.frames img')];
 
         thumbnails.forEach(thumbnail => thumbnail.parentNode.removeChild(thumbnail));
 
