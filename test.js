@@ -1,6 +1,6 @@
 // Context Menus - https://stackoverflow.com/a/13783536
 
-var isLoadingFrames = false,
+var videoFrames = {},
     nextID = 0;
 
 function showFrames(video) {
@@ -15,22 +15,31 @@ function hideFrames(video) {
 
 function loadFrames(video) {
 
-    var thumbnails;
-    isLoadingFrames = true;
+    var framesReference;
 
     if(video.hasAttribute("container-id")) {
+
+        // RESET CONTAINER
+
+        var id = video.getAttribute("container-id");
+        framesReference = videoFrames[id] = {isLoading: true, thumbnails: []};
+
         var tempVideo = video.querySelector('.temp-video');
         var container = video.querySelector('.scrubber-container');
         var percentLoaded = video.querySelector('.percent-loaded');
+        var thumbnails = [...video.querySelector('.frames img')];
 
-        thumbnails = [];
+        thumbnails.forEach(thumbnail => thumbnail.parentNode.removeChild(thumbnail));
+
         tempVideo.src = video.src;
         percentLoaded.value = 0;
         container.classList.remove("hide");
         return;
     }
 
-    video.setAttribute("container-ID", nextID++);
+    video.setAttribute("container-ID", nextID);
+    framesReference = videoFrames[nextID] = {isLoading: true, thumbnails: []};
+    nextID++;
 
     // INIT NEW ELEMENTS
 
@@ -63,7 +72,6 @@ function loadFrames(video) {
 
     console.log("Cross Origin: ", video.crossOrigin);
 
-    thumbnails = [];
     tempVideo.src = video.src;
     percentLoaded.value = 0;
 
@@ -71,7 +79,7 @@ function loadFrames(video) {
 
     video.addEventListener("timeupdate", function focusFrame() {
 
-        if(isLoadingFrames)
+        if(framesReference.isLoading)
             return;
         
         var frameNumber = Math.floor(this.currentTime / 5);
@@ -91,13 +99,13 @@ function loadFrames(video) {
 
     tempVideo.addEventListener("seeked", function generateThumbnail() {
 
-        if(!isLoadingFrames)
+        if(!framesReference.isLoading)
             return;
 
         context.drawImage(tempVideo, 0, 0);
         frameBuilder.toBlob(blob => {
 
-            if(!isLoadingFrames)
+            if(!framesReference.isLoading)
                 return;
                 
             thumbnails.push(URL.createObjectURL(blob));
@@ -111,7 +119,7 @@ function loadFrames(video) {
             }
             else {
                 // Done!, next action
-                isLoadingFrames = false;
+                framesReference.isLoading = false;
                 percentLoaded.classList.add("hide");
 
                 // Generate Thumbnails
