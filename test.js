@@ -26,7 +26,7 @@ function loadFrames(video) {
         id = video.getAttribute("container-id");
         videoFrames[id] = {isLoading: true, thumbnails: []};
 
-        var container = getFramesContainer(video),
+        var container = document.getElementById(`frames-container${id}`),
             tempVideo = container.querySelector('.temp-video'),
             percentLoaded = container.querySelector('.percent-loaded'),
             thumbnails = [...container.querySelectorAll('.frames img')];
