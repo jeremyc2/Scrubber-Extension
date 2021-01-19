@@ -18,6 +18,10 @@
     display: none;
 }
 
+.scrubber-container .wrapper {
+    position: relative;
+}
+
 /* Scrubber Frames */
 .frames {
     display: flex;
@@ -67,7 +71,7 @@ progress.percent-loaded::-webkit-progress-value {
 }
 
 .frames-progress {
-    position: fixed;
+    position: absolute;
     bottom: 0px;
     height: 2px;
     background-color: white;

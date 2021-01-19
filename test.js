@@ -49,6 +49,7 @@ function loadFrames(video) {
     var container = document.createElement("div"),
         frameBuilder = document.createElement("canvas"),
         frames = document.createElement("div"),
+        wrapper = document.createElement("div"),
         percentLoaded = document.createElement("progress"),
         framesProgress = document.createElement("div"),
         tempVideo = document.createElement("video"),
@@ -58,6 +59,7 @@ function loadFrames(video) {
     container.id = 'frames-container' + video.getAttribute("container-ID");
     frameBuilder.classList.add("frame-builder");
     frames.classList.add("frames");
+    wrapper.classList.add("wrapper");
     percentLoaded.classList.add("percent-loaded");
     framesProgress.classList.add("frames-progress");
     tempVideo.classList.add("temp-video");
@@ -67,8 +69,10 @@ function loadFrames(video) {
     frames.appendChild(percentLoaded);
     frames.appendChild(framesProgress);
 
+    wrapper.appendChild(frames);
+
     container.appendChild(frameBuilder);
-    container.appendChild(frames);
+    container.appendChild(wrapper);
     container.appendChild(tempVideo);
 
     document.body.appendChild(container);
