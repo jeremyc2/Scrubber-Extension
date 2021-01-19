@@ -27,7 +27,6 @@ function loadFrames(video) {
         tempVideo.src = video.src;
         percentLoaded.value = 0;
         container.classList.remove("hide");
-        // showFrames(video);
         return;
     }
 
