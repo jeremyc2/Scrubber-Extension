@@ -15,18 +15,21 @@ function hideFrames(video) {
 
 function loadFrames(video) {
 
+    var thumbnails;
+    isLoadingFrames = true;
+
     if(video.hasAttribute("container-id")) {
-        showFrames(video);
+        var tempVideo = video.querySelector('.temp-video');
+        var percentLoaded = video.querySelector('.percent-loaded');
+
+        thumbnails = [];
+        tempVideo.src = video.src;
+        percentLoaded.value = 0;
+        // showFrames(video);
         return;
     }
 
     video.setAttribute("container-ID", nextID++);
-
-    console.log("Cross Origin: ", video.crossOrigin);
-
-    var thumbnails = [];
-
-    isLoadingFrames = true;
 
     // INIT NEW ELEMENTS
 
@@ -47,7 +50,6 @@ function loadFrames(video) {
     tempVideo.classList.add("temp-video");
 
     container.style.zIndex = Number.MAX_SAFE_INTEGER;
-    percentLoaded.value = 0;
 
     frames.appendChild(percentLoaded);
     frames.appendChild(framesProgress);
@@ -58,7 +60,11 @@ function loadFrames(video) {
 
     document.body.appendChild(container);
 
+    console.log("Cross Origin: ", video.crossOrigin);
+
+    thumbnails = [];
     tempVideo.src = video.src;
+    percentLoaded.value = 0;
 
     // EVENT LISTENERS
 
