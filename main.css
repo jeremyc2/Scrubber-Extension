@@ -72,7 +72,7 @@ progress.percent-loaded::-webkit-progress-value {
 
 .frames-progress {
     position: absolute;
-    bottom: 0px;
+    bottom: 10px;
     height: 2px;
     background-color: white;
     border-top: solid black 1px;
