@@ -1,5 +1,24 @@
 // Context Menus - https://stackoverflow.com/a/13783536
 
+console.log("Scene Selection Extension Loaded");
+
+chrome.runtime.onMessage.addListener(
+    function(message, callback) {
+        switch (message) {
+            case "load frames":
+                loadFrames();
+                break;
+            case "show frames":
+                showFrames();
+                break;
+            case "hide frames":
+                hideFrames();
+                break;
+            default:
+                break;
+        }
+});
+
 var videoFrames = {},
     nextID = 0;
 
