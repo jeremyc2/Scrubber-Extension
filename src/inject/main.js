@@ -78,7 +78,12 @@ function loadFrames(video) {
 
         thumbnails.forEach(thumbnail => thumbnail.parentNode.removeChild(thumbnail));
 
-        tempVideo.src = video.src;
+        if(video.src = "") {
+            tempVideo.src = window.location.href;
+        } else {
+            tempVideo.src = video.src;
+        }
+        
         percentLoaded.value = 0;
         container.classList.remove("hide");
         percentLoaded.classList.remove("hide");
@@ -124,7 +129,12 @@ function loadFrames(video) {
 
     console.log("Cross Origin: ", video.crossOrigin);
 
-    tempVideo.src = video.src;
+    if(video.src = "") {
+        tempVideo.src = window.location.href;
+    } else {
+        tempVideo.src = video.src;
+    }
+    
     percentLoaded.value = 0;
 
     // EVENT LISTENERS
