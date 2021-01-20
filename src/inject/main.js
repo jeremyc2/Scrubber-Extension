@@ -25,11 +25,17 @@ var videoFrames = {},
     nextID = 0;
 
 function showFrames(video) {
-    getFramesContainer(video).classList.remove("hide");
+    var frames = getFramesContainer(video);
+    
+    if(frames != null)
+        frames.classList.remove("hide");
 }
 
 function hideFrames(video) {
-    getFramesContainer(video).classList.add("hide");
+    var frames = getFramesContainer(video);
+    
+    if(frames != null)
+        frames.classList.add("hide");
 }
 
 function getFramesContainer(video) {
@@ -39,7 +45,7 @@ function getFramesContainer(video) {
 
     if(video == null) {
         console.error("Could not find video");
-        return;
+        return null;
     }
 
     return document.getElementById('frames-container' + video.getAttribute("container-ID"));
