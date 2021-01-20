@@ -2,7 +2,7 @@
   "name": "Scene Selection",
   "version": "0.0.1",
   "manifest_version": 2,
-  "description": "Scrub through frames like the Scene Selection of old DVDs",
+  "description": "Scrub through online video frames like the Scene Selection of old DVDs",
   "homepage_url": "https://github.com/jeremyc2/Scrubber-Extension",
   "icons": {
     "16": "icons/icon16.png",
