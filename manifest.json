@@ -45,14 +45,6 @@
       "js": [
         "src/inject/zoom.js"
       ]
-    },
-    {
-      "matches": [
-        "https://ssrwebblob.zoom.us/*"
-      ],
-      "js": [
-        "src/inject/zoom01.js"
-      ]
     }
   ]
 }
