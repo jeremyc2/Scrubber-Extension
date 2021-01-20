@@ -2,22 +2,24 @@
 
 console.log("Scene Selection Extension Loaded");
 
-chrome.runtime.onMessage.addListener(
-    function(message, callback) {
-        switch (message) {
-            case "load frames":
-                loadFrames();
-                break;
-            case "show frames":
-                showFrames();
-                break;
-            case "hide frames":
-                hideFrames();
-                break;
-            default:
-                break;
-        }
-});
+window.addEventListener("message", function(event) {
+    console.log(event);
+
+    switch (event.data) {
+        case "load frames":
+            loadFrames();
+            break;
+        case "show frames":
+            showFrames();
+            break;
+        case "hide frames":
+            hideFrames();
+            break;
+        default:
+            break;
+    }
+
+})
 
 var videoFrames = {},
     nextID = 0;
@@ -35,6 +37,9 @@ function getFramesContainer(video) {
     if(video == null)
         video = document.querySelector("video");
 
+    if(video == null)
+        console.error("Could not find video");
+
     return document.getElementById('frames-container' + video.getAttribute("container-ID"));
 }
 
@@ -42,6 +47,9 @@ function loadFrames(video) {
 
     if(video == null)
         video = document.querySelector("video");
+
+    if(video == null)
+        console.error("Could not find video");
 
     var id;
 
