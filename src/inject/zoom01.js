@@ -1,0 +1,1 @@
+console.log("Do your magic here, but with temp-vid src equal to window.location.href");
