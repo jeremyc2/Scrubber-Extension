@@ -37,8 +37,10 @@ function getFramesContainer(video) {
     if(video == null)
         video = document.querySelector("video");
 
-    if(video == null)
+    if(video == null) {
         console.error("Could not find video");
+        return;
+    }
 
     return document.getElementById('frames-container' + video.getAttribute("container-ID"));
 }
@@ -48,8 +50,10 @@ function loadFrames(video) {
     if(video == null)
         video = document.querySelector("video");
 
-    if(video == null)
+    if(video == null) {
         console.error("Could not find video");
+        return;
+    }
 
     var id;
 
