@@ -2,6 +2,7 @@
 
 console.log("Scene Selection Extension Loaded");
 
+// Example From Client: window.postMessage("load frames")
 window.addEventListener("message", function(event) {
     console.log(event);
 
