@@ -211,7 +211,7 @@ function loadFrames(video) {
 
     frames.addEventListener("scroll", function updateProgress() {
         framesProgress.style.width = this.getBoundingClientRect().width * 
-            this.scrollTop / (this.scrollHeight - this.getBoundingClientRect().height)
+            this.scrollTop / (this.scrollHeight - this.getBoundingClientRect().height);
     });
 
 }
