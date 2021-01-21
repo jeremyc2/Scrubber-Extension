@@ -110,6 +110,7 @@ function loadFrames(video) {
     framesProgress.classList.add("frames-progress");
     tempVideo.classList.add("temp-video");
 
+    tempVideo.crossOrigin = "*";
     container.style.zIndex = Number.MAX_SAFE_INTEGER;
 
     frames.appendChild(percentLoaded);
