@@ -78,7 +78,8 @@ function loadFrames(video) {
 
         thumbnails.forEach(thumbnail => thumbnail.parentNode.removeChild(thumbnail));
 
-        if(video.src = "") {
+        if(video.src == "") {
+            console.log("Video source derived from href");
             tempVideo.src = window.location.href;
         } else {
             tempVideo.src = video.src;
@@ -129,7 +130,8 @@ function loadFrames(video) {
 
     console.log("Cross Origin: ", video.crossOrigin);
 
-    if(video.src = "") {
+    if(video.src == "") {
+        console.log("Video source derived from href");
         tempVideo.src = window.location.href;
     } else {
         tempVideo.src = video.src;
