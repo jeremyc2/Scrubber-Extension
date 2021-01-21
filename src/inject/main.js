@@ -1,25 +1,23 @@
 // Context Menus - https://stackoverflow.com/a/13783536
 
-// Communication from extension
-// Example From Client: window.postMessage("load frames")
-window.addEventListener("message", function(event) {
-    console.log(event);
-
-    switch (event.data) {
-        case "load frames":
-            loadFrames();
-            break;
-        case "show frames":
-            showFrames();
-            break;
-        case "hide frames":
-            hideFrames();
-            break;
-        default:
-            break;
+chrome.runtime.onMessage.addListener(
+    function(request) {
+        console.log(request);
+        switch (request.data) {
+            case "load frames":
+                loadFrames();
+                break;
+            case "show frames":
+                showFrames();
+                break;
+            case "hide frames":
+                hideFrames();
+                break;
+            default:
+                break;
+        }
     }
-
-})
+);
 
 var videoFrames = {},
     nextID = 0;
