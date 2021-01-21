@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "manifest_version": 2,
   "description": "Scrub through online video frames like the Scene Selection of old DVDs",
-  "homepage_url": "https://github.com/jeremyc2/Scrubber-Extension",
+  "homepage_url": "https://jeremyc2.github.io/MasterScrubber",
   "icons": {
     "16": "icons/icon16.png",
     "48": "icons/icon48.png",
