@@ -1,4 +1,5 @@
 // TODO: Make percentLoaded progress bar more discrete
+// Also fix framesProgress in Master Scrubber
 
 chrome.runtime.onMessage.addListener(
     function(request) {
