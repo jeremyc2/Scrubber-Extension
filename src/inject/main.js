@@ -1,5 +1,3 @@
-// Context Menus - https://stackoverflow.com/a/13783536
-
 chrome.runtime.onMessage.addListener(
     function(request) {
         switch (request.data) {
