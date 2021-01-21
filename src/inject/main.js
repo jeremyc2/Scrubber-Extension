@@ -1,3 +1,5 @@
+// TODO: Make percentLoaded progress bar more discrete
+
 chrome.runtime.onMessage.addListener(
     function(request) {
         switch (request.data) {
