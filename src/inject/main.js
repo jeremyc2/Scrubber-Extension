@@ -1,7 +1,6 @@
 // Context Menus - https://stackoverflow.com/a/13783536
 
-console.log("Scene Selection Extension Loaded");
-
+// Communication from extension
 // Example From Client: window.postMessage("load frames")
 window.addEventListener("message", function(event) {
     console.log(event);
