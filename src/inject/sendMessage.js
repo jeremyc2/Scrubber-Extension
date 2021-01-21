@@ -4,6 +4,10 @@ function sendMessage(text) {
     });
 }
 
-document.getElementById("lf").onclick = () => sendMessage('load frames');
-document.getElementById("sf").onclick = () => sendMessage('show frames');
-document.getElementById("hf").onclick = () => sendMessage('hide frames');
+document.getElementById("load-frames").onclick = function() {
+    sendMessage('load frames');
+};
+
+document.getElementById("toggle-frames").onclick = function() {
+    sendMessage('toggle frames');
+};

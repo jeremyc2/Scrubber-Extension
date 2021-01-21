@@ -12,6 +12,9 @@ chrome.runtime.onMessage.addListener(
             case "hide frames":
                 hideFrames();
                 break;
+            case "toggle frames":
+                toggleFrames();
+                break;
             default:
                 break;
         }
@@ -33,6 +36,18 @@ function hideFrames(video) {
     
     if(frames != null)
         frames.classList.add("hide");
+}
+
+function toggleFrames(video) {
+    var frames = getFramesContainer(video);
+    
+    if(frames != null) {
+        if(frames.classList.contains("hide")) {
+            frames.classList.remove("hide");
+        } else {
+            frames.classList.add("hide");
+        }
+    }
 }
 
 function getFramesContainer(video) {
