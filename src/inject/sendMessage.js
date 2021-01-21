@@ -1,5 +1,7 @@
 function sendMessage(text) {
-    chrome.runtime.sendMessage({data: text});
+    chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
+        chrome.tabs.sendMessage(tabs[0].id, {data: text});
+    });
 }
 
 document.getElementById("lf").onclick = () => sendMessage('load frames');

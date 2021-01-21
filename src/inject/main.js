@@ -2,7 +2,6 @@
 
 chrome.runtime.onMessage.addListener(
     function(request) {
-        console.log(request);
         switch (request.data) {
             case "load frames":
                 loadFrames();
@@ -120,8 +119,6 @@ function loadFrames(video) {
     container.appendChild(tempVideo);
 
     document.body.appendChild(container);
-
-    console.log("Cross Origin: ", video.crossOrigin);
 
     tempVideo.src = video.currentSrc;
     
