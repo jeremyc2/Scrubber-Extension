@@ -17,3 +17,9 @@ chrome.contextMenus.create({
     contexts:["video"], 
     onclick: loadFrames
 });
+
+chrome.contextMenus.create({
+    title: "Toggle Frames", 
+    contexts:["video"], 
+    onclick: toggleFrames
+});
