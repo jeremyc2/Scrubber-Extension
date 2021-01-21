@@ -78,11 +78,7 @@ function loadFrames(video) {
 
         thumbnails.forEach(thumbnail => thumbnail.parentNode.removeChild(thumbnail));
 
-        if(video.src == "") {
-            tempVideo.src = video.querySelector("source").src;
-        } else {
-            tempVideo.src = video.src;
-        }
+        tempVideo.src = video.currentSrc;
         
         percentLoaded.value = 0;
         container.classList.remove("hide");
@@ -129,11 +125,7 @@ function loadFrames(video) {
 
     console.log("Cross Origin: ", video.crossOrigin);
 
-    if(video.src == "") {
-        tempVideo.src = video.querySelector("source").src;
-    } else {
-        tempVideo.src = video.src;
-    }
+    tempVideo.src = video.currentSrc;
     
     percentLoaded.value = 0;
 
